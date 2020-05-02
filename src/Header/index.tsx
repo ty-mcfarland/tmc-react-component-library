@@ -1,6 +1,4 @@
 import * as React from 'react'
-// import classnames from 'classnames'
-// const headerStyles = require('./styles.scss')
 import './styles.scss'
 
 export interface HeaderComponentProps {
