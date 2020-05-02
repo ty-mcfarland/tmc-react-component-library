@@ -1,36 +1,46 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const path = require('path')
 
 module.exports = {
     mode: "production",
-
+    entry: path.resolve(__dirname, 'src/index.tsx'),
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".js", ".ts", ".tsx", 'scss']
+        extensions: [".js", ".ts", ".tsx", '.scss'],
+        modules: ["node_modules"]
     },
 
     module: {
         rules: [
             {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "babel-loader",
+                    }
+                ]
+            },
+            {
                 test: /\.ts(x?)$/,
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: "ts-loader"
+                        loader: "ts-loader",
                     }
                 ]
             },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
-            },
+            // {
+            //     enforce: "pre",
+            //     test: /\.js$/,
+            //     loader: "source-map-loader"
+            // },
             {
                 test: /\.scss$/,
                 include: /src/,
@@ -59,13 +69,16 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[id].css',
         }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'index.template.html')
-        })
+        // new HtmlWebpackPlugin({
+        //     template: path.resolve(__dirname, 'index.template.html')
+        // })
     ],
     output: {
+        filename: 'index.js',
         path: path.resolve(__dirname, 'build'),
-    }
+        library: "tmc-react-component-library",
+        libraryTarget: "umd"
+    },
 
     // // When importing a module whose path matches one of the following, just
     // // assume a corresponding global variable exists and use that instead.
