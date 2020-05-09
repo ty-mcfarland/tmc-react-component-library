@@ -9,7 +9,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "webpack": "rm -rf build && webpack"
+    "webpack": "rm -rf build && webpack",
+    "storybook": "start-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,7 +42,9 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
-    "@storybook/addon-info": "^5.3.18",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.3.18",
     "@testing-library/jest-dom": "^4.2.4",
