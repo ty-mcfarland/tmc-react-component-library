@@ -36,28 +36,28 @@ export enum InputType {
     WEEK = 'week'
 }
 
-interface BaseInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface BaseInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
     onChange?: (event: React.FormEvent<HTMLInputElement>) => void
     onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
 }
 
 
+export class BaseInput extends React.Component<BaseInputProps> {
 
-export const BaseInput = ({
-    disabled,
-    id,
-    inputMode,
-    maxLength,
-    minLength,
-    onBlur,
-    onChange,
-    onFocus,
-    placeholder,
-    type,
-    value,
-}: BaseInputProps): JSX.Element => {
-    return (
+    render = ({
+        disabled,
+        id,
+        inputMode,
+        maxLength,
+        minLength,
+        onBlur,
+        onChange,
+        onFocus,
+        placeholder,
+        type,
+        value
+    } = this.props) => (
         <input
             className='baseInput'
             disabled={ disabled }

@@ -28,7 +28,7 @@ module.exports = {
             },
             {
                 test: /\.ts(x?)$/,
-                exclude: /node_modules/,
+                exclude: [/node_modules/, /.storybook/],
                 use: [
                     {
                         loader: "ts-loader",
