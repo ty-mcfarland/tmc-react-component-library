@@ -6,6 +6,9 @@
     "baseUrl": "src",
     "module": "amd",
     "lib": ["dom", "esnext"],
+    "paths": {
+      "configured-enzyme": ["enzyme.config.ts"]
+    },
     "sourceMap": true,
     "importHelpers": true,
     "declaration": true,

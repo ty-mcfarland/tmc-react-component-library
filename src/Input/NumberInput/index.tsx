@@ -44,18 +44,14 @@ export class NumberInput
         { maxLength, minLength, onFocus } = this.props, 
         { inputValue } = this.state,
     ) => (
-        <React.Fragment>
-        {
-            new BaseInput({
-                inputMode: InputMode.NUMERIC,
-                maxLength,
-                minLength,
-                onChange: this.handleOnChange,
-                onFocus,
-                type: InputType.TEXT,
-                value: inputValue,
-            })
-        }
-        </React.Fragment>
+        <BaseInput
+            inputMode={InputMode.NUMERIC}
+            maxLength={maxLength}
+            minLength={minLength}
+            onChange={this.handleOnChange}
+            onFocus={onFocus}
+            type={InputType.TEXT}
+            value={inputValue}
+        />
     )
 }
