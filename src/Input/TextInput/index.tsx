@@ -21,17 +21,13 @@ export class TextInput
             onChange,
             onFocus,
         } = this.props) => (
-            <React.Fragment>
-                {
-                    new BaseInput({
-                        inputMode: InputMode.TEXT,
-                        maxLength,
-                        minLength,
-                        onChange,
-                        onFocus,
-                        type: InputType.TEXT,
-                    })
-                }
-            </React.Fragment>
+            <BaseInput
+                inputMode={InputMode.TEXT}
+                maxLength={maxLength}
+                minLength={minLength}
+                onChange={onChange}
+                onFocus={onFocus}
+                type={InputType.TEXT}
+            />
         )
     }

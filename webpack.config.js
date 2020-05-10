@@ -12,7 +12,10 @@ module.exports = {
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".js", ".ts", ".tsx", '.scss'],
-        modules: ["node_modules"]
+        modules: ["node_modules"],
+        alias: {
+            'configured-enzyme$': path.resolve(__dirname, 'enzyme.config.ts')
+        }
     },
 
     module: {
